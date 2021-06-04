@@ -1,10 +1,10 @@
 import express from "express";
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import db from './models/core.js';
+
 
 import {FEAddress, IS_PRODUCTION} from './config.js';
-
-
 
 const app = express();
 const port = process.env.PORT || 3030;
@@ -15,12 +15,12 @@ let corsOptions = {
     credentials: true,
 };
 
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.raw());
 
 app.use(cors(corsOptions));
+
 
 /*
 app.use('/auth', authRoute);
