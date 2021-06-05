@@ -21,3 +21,20 @@ export async function login(req, res){
     res.cookie('token', token, config.cookieOptions);
     res.status(200).send(user.username);
 }
+
+export async function logout(req, res){
+    const token = req.cookies.token;
+    res.clearCookie('token', config.clearCookieOptions);
+    res.status(200).send("OK");
+}
+
+export async function verify(req, res){
+    const token = req.cookies.token;
+    const data = await service.AuthenticateService.getUserDataByToken(token);
+    if(data){
+        res.status(200).send(data.username);
+    }
+    else{
+        res.status(200).send("Failed");
+    }
+}

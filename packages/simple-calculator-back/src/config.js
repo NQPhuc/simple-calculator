@@ -11,3 +11,7 @@ export const tokenExpirationTime = 300;
 export const cookieOptions = IS_PRODUCTION 
     ? {maxAge: tokenExpirationTime*1000, sameSite: 'None', secure: true} 
     : {maxAge: tokenExpirationTime*1000, sameSite: 'Lax', secure: false};
+
+export const clearCookieOptions = IS_PRODUCTION 
+    ? {sameSite: 'None', secure: true} 
+    : {sameSite: 'Lax', secure: false};

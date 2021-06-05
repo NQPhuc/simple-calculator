@@ -19,11 +19,12 @@ db.users = createUsersModel(db.sequelize, Sequelize);
 db.histories = createHistoriesModel(db.sequelize, Sequelize);
 
 //RELATIONSHIP MAPPING
-db.users.hasMany(db.histories);
-db.histories.belongsTo(db.users);
+db.users.histories = db.users.hasMany(db.histories);
+db.histories.users = db.histories.belongsTo(db.users);
 
 
 (async () => {
+  //await db.sequelize.sync({force: true});
   await db.sequelize.sync();
   // Code here
 })();

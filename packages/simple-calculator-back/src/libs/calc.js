@@ -153,7 +153,7 @@ function trimZero(num){
  * @param {*} op operator: +,-,* or %
  * @returns 
  */
-export function calculate(a, b, op){
+export async function calculate(a, b, op){
     let res = -999
 
     if(!isValidInteger(a)) return "wrong input";

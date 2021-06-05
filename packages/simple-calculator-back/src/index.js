@@ -27,6 +27,7 @@ app.use(cors(corsOptions));
 
 app.use('/auth', routes.AuthenticateRoute);
 app.use('/user', routes.UserRoute);
+app.use('/calc', routes.CalcRoute);
 
 app.get('/', (req, res) => {
   res.send(

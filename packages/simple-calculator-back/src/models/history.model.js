@@ -9,18 +9,18 @@ export default function createHistoriesModel(sequelize, datatypes){
             allowNull: false,
         },
         operator:{
-            type: datatypes.INTEGER,
+            type: datatypes.STRING(1),
             allowNull: false
         },
         result:{
             type: datatypes.STRING,
             allowNull: false,
         },
-        calculateAt: {
-            type: datatypes.DATE,
-            allowNull: false,
-            defaultValue: sequelize.NOW
-        }
+        // calculateAt: {//this code has problem
+        //     type: datatypes.DATE,
+        //     allowNull: false,
+        //     defaultValue: sequelize.NOW
+        // }
     });
     return history;
 }
