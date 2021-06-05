@@ -24,7 +24,7 @@ db.histories.belongsTo(db.users);
 
 
 (async () => {
-  await db.sequelize.sync({ force: true });
+  await db.sequelize.sync();
   // Code here
 })();
 
