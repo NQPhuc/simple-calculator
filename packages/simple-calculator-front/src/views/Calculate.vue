@@ -5,7 +5,7 @@
   </div>
 </template>
 <script>
-import * as http from "../services";
+
 import CalculatorComponent from "@/components/Calculator.vue";
 export default{
   name: "Calculate",
