@@ -24,10 +24,17 @@ app.use(express.raw());
 
 app.use(cors(corsOptions));
 
+(async () => {
+  //await db.sequelize.sync({force: true});
+  await db.sequelize.sync();
+  // Code here
+})();
+
 
 app.use('/auth', routes.AuthenticateRoute);
 app.use('/user', routes.UserRoute);
 app.use('/calc', routes.CalcRoute);
+app.use('/history', routes.HistoryRoute);
 
 app.get('/', (req, res) => {
   res.send(

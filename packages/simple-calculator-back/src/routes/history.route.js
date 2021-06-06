@@ -3,6 +3,6 @@ import * as controller from '../controllers/index.js';
 
 const router = express.Router();
 
-router.post('/register', controller.UserController.registerNewUser);
+router.get('/all', controller.HistoryController.getAllHistoryOfUser);
 
 export default router;
