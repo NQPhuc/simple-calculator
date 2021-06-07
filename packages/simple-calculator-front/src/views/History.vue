@@ -32,7 +32,7 @@ export default {
   },
   async mounted() {
     const reply = await http.HistoryService.getAllHistory();
-    if (reply) {
+    if (reply != "Not logged in") {
       this.records = reply;
     } else {
       this.records = [];

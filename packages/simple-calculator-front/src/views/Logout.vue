@@ -19,6 +19,7 @@
             async logout(){
                 await http.AuthenticateService.logout();
                 this.$store.commit("setLoginName", null);
+                window.location.href = '/';
             }
         }
     }
