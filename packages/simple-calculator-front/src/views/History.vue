@@ -35,7 +35,7 @@ export default {
     if (reply != "Not logged in") {
       this.records = reply;
     } else {
-      this.records = [];
+      this.records = JSON.parse(localStorage.getItem('history'));
     }
   },
 };

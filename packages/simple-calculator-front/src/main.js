@@ -22,6 +22,9 @@ const store = new Vuex.Store({
   }
 })
 
+const history = localStorage.getItem("history");
+if(!history) localStorage.setItem("history", JSON.stringify([]));
+
 new Vue({
   router,
   store: store,
