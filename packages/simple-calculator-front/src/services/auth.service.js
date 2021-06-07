@@ -5,7 +5,7 @@ export default class AuthenticateService{
         return (await axiosWithCookies.post('/auth/login',{
             username: username,
             password: password
-        }));
+        })).data;
     }
 
     static async logout(){

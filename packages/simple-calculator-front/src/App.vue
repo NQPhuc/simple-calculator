@@ -1,13 +1,34 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/calculate">Calculate</router-link> |
-      <router-link to="/login">Login</router-link>
+      <!--router-link to="/">Home</router-link-->
+      <router-link to="/logout" v-if="this.$store.state.loginName">Logout</router-link>
+      <router-link to="/login" v-else>Login</router-link> |
+      <router-link to="/">Calculate</router-link> |
+      <router-link to="/history">History</router-link> |
+      <router-link to="/register">Register</router-link>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
+
+<script>
+import * as http from './services';
+export default {
+  setup() {
+    
+  },
+  async mounted(){
+    const reply = await http.AuthenticateService.verifyToken();
+    if(reply != "Failed"){
+      this.$store.commit("setLoginName", reply);
+    }
+    else{
+      this.$store.commit("setLoginName", null);
+    }
+  }
+}
+</script>
 
 <style>
 #app {
