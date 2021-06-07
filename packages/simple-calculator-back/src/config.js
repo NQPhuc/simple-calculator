@@ -7,6 +7,7 @@ export const FEAddress = IS_PRODUCTION ? process.env.FE_ADDRESS_PRODUCTION : pro
 export const db_user = process.env.DB_USERNAME;
 export const db_password = process.env.DB_PASSWORD;
 export const db_name = process.env.DB_DATABASE_NAME;
+export const db_host = process.env.DB_HOST;
 
 export const saltRounds = process.env.SALT_ROUND ? parseInt(process.env.SALT_ROUND) : 10;
 export const jwtSecret = process.env.JWT_SECRET || 'abcdef';

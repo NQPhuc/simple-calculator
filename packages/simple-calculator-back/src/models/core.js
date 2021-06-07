@@ -8,7 +8,7 @@ let db = {};
 
 //CONNECTING
 db.sequelize = new Sequelize(config.db_name, config.db_user, config.db_password, {
-  host: 'localhost',
+  host: config.db_host,
   dialect: 'postgres',
   logging: !config.IS_PRODUCTION
 });
