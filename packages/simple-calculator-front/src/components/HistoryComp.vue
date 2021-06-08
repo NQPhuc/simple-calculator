@@ -1,25 +1,33 @@
 <template>
   <div class="register">
-    <p>User: {{ this.$store.state.loginName || "Guest" }}</p>
-    <button v-on:click="clearHistory">Clear History</button>
-    <table style="width: 100%">
-      <tr>
-        <th>#</th>
-        <th>Date created</th>
-        <th>Operand 1</th>
-        <th>Operator</th>
-        <th>Operand 2</th>
-        <th>Result</th>
-      </tr>
-      <tr v-for="(item, index) in this.$store.state.records" :key="item.id">
-        <td>{{ index + 1 }}</td>
-        <td>{{ item.createdAt }}</td>
-        <td>{{ item.operand1 }}</td>
-        <td>{{ item.operator }}</td>
-        <td>{{ item.operand2 }}</td>
-        <td>{{ item.result }}</td>
-      </tr>
-    </table>
+    <label class="text-gray-600 font-light">User: {{ this.$store.state.loginName || "Guest" }}</label> <br>
+    <button v-on:click="clearHistory" class="bg-blue-600 text-gray-200 rounded hover:bg-blue-500 px-3 py-2 focus:outline-none">Clear History</button>
+    <div class="bg-white rounded-lg shadow-lg py-6">
+      <div class="block overflow-x-auto mx-6">
+        <table class="w-full text-left rounded-lg">
+          <thead>
+          <tr class="text-gray-800 border border-b-0">
+            <th class="px-4 py-3">#</th>
+            <th class="px-4 py-3">Date created</th>
+            <th class="px-4 py-3">Operand 1</th>
+            <th class="px-4 py-3">Operator</th>
+            <th class="px-4 py-3">Operand 2</th>
+            <th class="px-4 py-3">Result</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr v-for="(item, index) in this.$store.state.records" :key="item.id" class="w-full font-light text-gray-700 bg-gray-100 whitespace-no-wrap border border-b-0">
+            <td class="px-4 py-4">{{ index + 1 }}</td>
+            <td class="px-4 py-4">{{ item.createdAt }}</td>
+            <td class="px-4 py-4">{{ item.operand1 }}</td>
+            <td class="px-4 py-4">{{ item.operator }}</td>
+            <td class="px-4 py-4">{{ item.operand2 }}</td>
+            <td class="px-4 py-4">{{ item.result }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </template>
 

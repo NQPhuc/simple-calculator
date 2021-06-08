@@ -1,12 +1,12 @@
 <template>
   <div class="login">
-    <h1>This is an login page</h1>
-    <p>Username</p>
-    <input type="text" name="username" v-model="username"/>
+    <h1>This is an login page</h1><br/>
+    <p>Name</p>
+    <input type="text" name="username" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500" v-model="username"/>
     <p>Password</p>
-    <input type="password" name="password" v-model="password"/>
+    <input type="password" name="password" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500" v-model="password"/>
     <br/><br/>
-    <button v-on:click="login">Login</button>
+    <button v-on:click="login" class="bg-blue-600 text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">Login</button>
   </div>
 </template>
 

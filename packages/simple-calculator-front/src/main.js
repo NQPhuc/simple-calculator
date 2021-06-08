@@ -3,6 +3,7 @@ import App from './App.vue';
 import router from './router';
 import Vuex from 'vuex';
 import * as http from './services';
+import './index.css';
 
 Vue.config.productionTip = false
 Vue.use(Vuex)

@@ -1,27 +1,25 @@
 <template>
   <div>
     <p>integer 1:</p>
-    <textarea id="a" rows="6" cols="100" v-model="a"></textarea>
-    <button type="button">Reset</button>
+    <textarea id="a" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" rows="4" cols="50" v-model="a"></textarea>
 
     <p>integer 2:</p>
-    <textarea id="b" rows="6" cols="100" v-model="b"></textarea>
-    <button type="button">Reset</button>
+    <textarea id="b" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" rows="4" cols="50"  v-model="b"></textarea>
 
     <p>
       operator:
-      <select id="op" v-model="op">
-        <option value="+">+</option>
-        <option value="-">-</option>
-        <option value="*">*</option>
-        <option value="%">%</option></select
-      ><br />
+      <select id="op" class="w-full border bg-white rounded px-3 py-2 outline-none" v-model="op">
+        <option value="+" class="py-1">+</option>
+        <option value="-" class="py-1">-</option>
+        <option value="*" class="py-1">*</option>
+        <option value="%" class="py-1">%</option>
+      </select><br />
     </p>
 
-    <button type="button" v-on:click="calculate">Calculate</button>
+    <button type="button" v-on:click="calculate" class="bg-blue-600 text-gray-200 rounded hover:bg-blue-500 px-3 py-2 focus:outline-none">Calculate</button>
 
     <p>Result:</p>
-    <textarea id="result" rows="10" cols="100" disabled v-model="res"></textarea>
+    <textarea id="result" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" rows="8" cols="50"  disabled v-model="res"></textarea>
   </div>
 </template>
 <script>
