@@ -4,4 +4,8 @@ export default class HistoryService{
     static async getAllHistory(){
         return (await axiosWithCookies.get('/history/all')).data;
     }
+
+    static async clearHistory(){
+        return (await axiosWithCookies.delete('/history/all')).data;
+    }
 }

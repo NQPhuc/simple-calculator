@@ -17,4 +17,9 @@ export default class HistoryService{
         console.log(res);
         return res;
     }
+    static async deleteAllHistoryOfUser(uid){
+        const res = await db.histories.destroy({where: {userId: uid}});
+        console.log(res);
+        return res;
+    }
 }

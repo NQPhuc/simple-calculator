@@ -21,5 +21,4 @@ export async function calculate(req, res){
         res.status(200).send({result: calculationResult, saved: false});
     }
 
-    
 }

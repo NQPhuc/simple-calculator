@@ -10,7 +10,7 @@ let db = {};
 db.sequelize = new Sequelize(config.db_name, config.db_user, config.db_password, {
   host: config.db_host,
   dialect: 'postgres',
-  logging: !config.IS_PRODUCTION
+  logging: false//!config.IS_PRODUCTION
 });
 db.sequelize.authenticate()
   .then(() => console.log("CONNECTED TO DATABASE"))
