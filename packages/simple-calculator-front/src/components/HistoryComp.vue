@@ -9,7 +9,7 @@
         <th>Operand 2</th>
         <th>Result</th>
       </tr>
-      <tr v-for="(item, index) in this.records" :key="item.id">
+      <tr v-for="(item, index) in this.$store.state.records" :key="item.id">
         <td>{{index+1}}</td>
         <td>{{item.createdAt}}</td>
         <td>{{item.operand1}}</td>
@@ -31,18 +31,8 @@
 import * as http from "../services";
 export default {
   setup() {},
-  data() {
-    return {
-      records: [],
-    };
-  },
   async mounted() {
-    const reply = await http.HistoryService.getAllHistory();
-    if (reply != "Not logged in") {
-      this.records = reply;
-    } else {
-      this.records = JSON.parse(localStorage.getItem('history'));
-    }
+    this.$store.commit("updateHistory");
   },
 };
 </script>

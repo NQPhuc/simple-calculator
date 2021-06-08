@@ -51,6 +51,7 @@ export default {
         });
         localStorage.setItem("history", JSON.stringify(historyArray));
       }
+      this.$store.commit("updateHistory");
     }
   }
 };
