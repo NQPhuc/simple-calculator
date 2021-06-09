@@ -1,7 +1,7 @@
 import { FEAddress, IS_PRODUCTION } from './config.js';
 
 import express from "express";
-import * as routes from './routes/index.js';
+import routes from './routes/index.js';
 
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
@@ -31,10 +31,7 @@ app.use(cors(corsOptions));
 })();
 
 
-app.use('/auth', routes.AuthenticateRoute);
-app.use('/user', routes.UserRoute);
-app.use('/calc', routes.CalcRoute);
-app.use('/history', routes.HistoryRoute);
+routes(app);
 
 app.get('/', (req, res) => {
   res.send(

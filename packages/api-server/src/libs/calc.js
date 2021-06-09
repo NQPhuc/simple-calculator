@@ -12,13 +12,12 @@ export function getDigitAndCarry(n, base){
 */
 function getDigitAndBorrow(n, base){
     if (n >= 0) return [n, 0];
-    //console.log(base - ((-n) % base), Math.ceil((-n) / base));
     if((-n) % base === 0) return [0, Math.ceil((-n) / base)];
     else return [base -  ((-n) % base), Math.ceil((-n) / base)];
 }
 
 export function isValidInteger(text){
-    let regularExpression = /^-?[0-9]+$/;
+    const regularExpression = /^-?[0-9]+$/;
     return regularExpression.test(text);
 }
 

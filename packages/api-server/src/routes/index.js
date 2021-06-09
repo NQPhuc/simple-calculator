@@ -3,4 +3,9 @@ import UserRoute from './user.route.js';
 import CalcRoute from './cal.route.js';
 import HistoryRoute from './history.route.js';
 
-export {AuthenticateRoute, UserRoute, CalcRoute, HistoryRoute};
+export default (app) => {
+    app.use('/auth', AuthenticateRoute);
+    app.use('/user', UserRoute);
+    app.use('/calc', CalcRoute);
+    app.use('/history', HistoryRoute);
+}; 
