@@ -30,7 +30,6 @@ app.use(cors(corsOptions));
   // Code here
 })();
 
-
 routes(app);
 
 app.get('/', (req, res) => {
