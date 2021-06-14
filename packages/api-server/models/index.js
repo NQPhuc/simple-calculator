@@ -1,3 +1,10 @@
+/**
+ * This file is auto-generated from sequelize-cli init
+ * I don't need this file because I already have models files in scr/models created before using CLI
+ * . So now I only need to writing migration file for the CLI db:migrate.
+ */
+require("@babel/register");
+
 'use strict';
 
 const fs = require('fs');
