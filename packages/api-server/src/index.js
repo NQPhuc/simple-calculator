@@ -22,8 +22,8 @@ app.use(express.raw());
 app.use(cors(corsOptions));
 
 /* (async () => {
-  await db.sequelize.sync();
-})(); */
+  await db.sequelize.sync({force: true});
+})(); */ 
 
 routes(app);
 

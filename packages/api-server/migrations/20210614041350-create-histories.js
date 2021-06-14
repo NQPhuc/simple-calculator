@@ -1,5 +1,11 @@
 module.exports = {
   up: (queryInterface, Sequelize) => queryInterface.createTable('Histories', {
+    id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: Sequelize.INTEGER
+    },
     operand1: {
       type: Sequelize.STRING,
       allowNull: false,
@@ -16,9 +22,23 @@ module.exports = {
       type: Sequelize.STRING,
       allowNull: false,
     },
+    UserId: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Users',
+        key: 'id',
+      },
+    },
+    createdAt: {
+      allowNull: false,
+      type: Sequelize.DATE
+    },
+    updatedAt: {
+      allowNull: false,
+      type: Sequelize.DATE
+    }
   }),
 
-  down: (queryInterface, Sequelize) => {
-    // logic for reverting the changes
-  }
+  down: (queryInterface, Sequelize) => queryInterface.dropTable('Histories')
 };

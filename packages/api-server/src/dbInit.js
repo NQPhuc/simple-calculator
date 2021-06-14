@@ -9,7 +9,7 @@ async function createTable () {
 const init = () => {
   const {
     dbName, dbUser, dbPassword, dbHost
-  } = config.dbName;
+  } = config;
 
   const pool = new pg.Pool({
     user: dbUser,
