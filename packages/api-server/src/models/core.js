@@ -6,12 +6,13 @@ import * as config from '../config.js';
 const db = {};
 
 // CONNECTING
-db.sequelize = new Sequelize(config.db_name, config.db_user, config.db_password, {
-  host: config.db_host,
+db.sequelize = new Sequelize(config.dbName, config.dbUser, config.dbPassword, {
+  host: config.dbHost,
   dialect: 'postgres',
   logging: false, // !config.IS_PRODUCTION
 });
 db.sequelize.authenticate()
+  // I know there will be eslint warning, but I don't have other ways to log the result
   .then(() => console.log("CONNECTED TO DATABASE"))
   .catch(() => console.log("CONNECTION FAILED"));
 
