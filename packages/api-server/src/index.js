@@ -21,9 +21,9 @@ app.use(express.raw());
 
 app.use(cors(corsOptions));
 
-(async () => {
+/* (async () => {
   await db.sequelize.sync();
-})();
+})(); */
 
 routes(app);
 
@@ -33,6 +33,24 @@ app.get('/', (req, res) => {
     + `IS_PRODUCTION: ${IS_PRODUCTION}\n`
     + `FE_ADD: ${FEAddress}\n`
   );
+});
+
+app.use((err, req, res, next) => {
+  if (err.status === 500 || typeof err.status === 'undefined') {
+    res.status(500).json({
+      error: {
+        name: 'InteralServerError',
+        message: 'Internal Server Error',
+      },
+    });
+  } else {
+    res.status(err.status).json({
+      error: {
+        name: err.name,
+        message: err.message,
+      },
+    });
+  }
 });
 
 app.listen(port, () => {
