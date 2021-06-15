@@ -20,5 +20,6 @@ export async function registerNewUser (req, res) {
 
 export async function deleteUser (req, res) {
   // this function is here so eslint doesn't warn about prefer export default
+  // I have no intention of implement it
   return "not implemented";
 }

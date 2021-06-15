@@ -22,17 +22,15 @@ export async function login (req, res) {
 }
 
 export async function logout (req, res) {
-  const { token } = req.cookies;
   res.clearCookie('token', config.clearCookieOptions);
   res.status(200).send("OK");
 }
 
 export async function verify (req, res) {
-  const { token } = req.cookies;
+  const { userData } = req.body;
   try {
-    const data = await service.AuthenticateService.getUserDataByToken(token);
-    if (data) {
-      res.status(200).send(data.username);
+    if (userData) {
+      res.status(200).send(userData.username);
     } else {
       res.status(400).send("Failed");
     }

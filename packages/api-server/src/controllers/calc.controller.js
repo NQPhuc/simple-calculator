@@ -4,17 +4,13 @@ import * as config from '../config.js';
 import * as calc from '../utils/calc.js';
 
 export async function calculate (req, res) {
-  const { operand1, operand2, operator } = req.body;
-  const { token } = req.cookies;
+  const {
+    operand1, operand2, operator, userData
+  } = req.body;
 
   try {
     if (calc.isValidInteger(operand1) && calc.isValidInteger(operand2) && ['+', '-', '*', '%'].includes(operator)) {
-      const promises = [];
-      promises.push(calc.calculate(operand1, operand2, operator));
-      promises.push(service.AuthenticateService.getUserDataByToken(token));
-
-      const [calculationResult, userData] = await Promise.all(promises);
-
+      const calculationResult = await calc.calculate(operand1, operand2, operator);
       if (userData) {
         service.HistoryService.appendHistory(
           userData.id, operand1, operand2, operator, calculationResult
@@ -33,5 +29,6 @@ export async function calculate (req, res) {
 
 export async function isValidInteger (req, res) {
   // this function is here so eslint doesn't warn about prefer export default
+  // I have no intention of implement it
   return "Not implemented";
 }

@@ -12,8 +12,9 @@ db.sequelize = new Sequelize(config.dbName, config.dbUser, config.dbPassword, {
   logging: false, // !config.IS_PRODUCTION
 });
 db.sequelize.authenticate()
-  // I know there will be eslint warning, but I don't have other ways to log the result
+  // eslint-disable-next-line no-console
   .then(() => console.log("CONNECTED TO DATABASE"))
+  // eslint-disable-next-line no-console
   .catch(() => console.log("CONNECTION FAILED"));
 
 // MODELING
