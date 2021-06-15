@@ -1,18 +1,18 @@
 <template>
   <div class="grid grid-cols-2 gap-4">
-    <div><CalculatorComponent /></div>
-    <div><HistoryComponent/></div>
+    <div><Calculator /></div>
+    <div><HistoryBox/></div>
   </div>
 </template>
 <script>
 
-import CalculatorComponent from "@/components/Calculator.vue";
-import HistoryComponent from "@/components/HistoryComp.vue";
+import Calculator from "@/components/Calculator.vue";
+import HistoryBox from "@/components/HistoryBox.vue";
 export default{
   name: "Calculate",
   components: {
-    CalculatorComponent,
-    HistoryComponent
+    Calculator,
+    HistoryBox
   }
 }
 </script>

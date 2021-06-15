@@ -1,11 +1,9 @@
 <template>
   <div id="app">
     <div id="nav">
-      <!--router-link to="/">Home</router-link-->
       <router-link to="/logout" v-if="this.$store.state.loginName">Logout</router-link>
       <router-link to="/login" v-else>Login</router-link> |
       <router-link to="/">Calculate</router-link> |
-      <router-link to="/history">History</router-link> |
       <router-link to="/register">Register</router-link>
     </div>
     <router-view />

@@ -20,7 +20,7 @@ const store = new Vuex.Store({
     },
     async updateHistory (state) {
       const reply = await http.HistoryService.getAllHistory();
-      if (reply != "Not logged in") {
+      if (reply) {
         state.records = reply;
       } else {
         state.records = JSON.parse(localStorage.getItem('history'));

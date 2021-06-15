@@ -1,18 +1,34 @@
 import {axiosDefault, axiosWithCookies} from './axios.instance';
 
 export default class AuthenticateService{
-    static async login(username, password){
-        return (await axiosWithCookies.post('/auth/login',{
-            username: username,
-            password: password
-        })).data;
+  static async login(username, password){
+    try {
+      return (await axiosWithCookies.post('/auth/login',{
+        username: username,
+        password: password
+      })).data;
+    } 
+    catch (e) {
+      alert(e);
     }
+  }
 
-    static async logout(){
-        return (await axiosWithCookies.get('/auth/logout')).data;
+  static async logout(){
+    try{
+      return (await axiosWithCookies.get('/auth/logout')).data;
+    } 
+    catch (e) {
+      return null;
     }
+        
+  }
 
-    static async verifyToken(){
-        return (await axiosWithCookies.get('/auth')).data;
-    }
+  static async verifyToken(){
+    try {
+      return (await axiosWithCookies.get('/auth')).data;
+    } 
+    catch (e) {
+      return null;
+    }   
+  }
 }

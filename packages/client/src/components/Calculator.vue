@@ -39,6 +39,7 @@ export default {
       const resData = await http.CalcService.calculate(this.a, this.b, this.op);
       this.res = resData.result;
       if(!resData.saved){
+        console.log("HERE");
         let historyArray = JSON.parse(localStorage.getItem("history"));
         historyArray.push({
           operand1: this.a, 

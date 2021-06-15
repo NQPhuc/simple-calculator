@@ -12,15 +12,15 @@
 </template>
 
 <script>
-    import * as http from "../services"; 
-    export default{
-        name: "Logout",
-        methods:{
-            async logout(){
-                await http.AuthenticateService.logout();
-                this.$store.commit("setLoginName", null);
-                window.location.href = '/'; //dark-art
-            }
-        }
+import * as http from "../services"; 
+export default{
+  name: "Logout",
+  methods:{
+    async logout(){
+      await http.AuthenticateService.logout();
+      this.$store.commit("setLoginName", null);
+      window.location.href = '/'; // dark-art
     }
+  }
+}
 </script>

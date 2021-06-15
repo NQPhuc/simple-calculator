@@ -11,28 +11,28 @@
 </template>
 
 <script>
-  import * as http from "../services"; 
-  export default {
-    name: 'Login',
-    data(){
-      return{
-        username: "",
-        password: ""
-      } 
-    },
-    methods:{
-      async login(){
-        const reply = await http.AuthenticateService.login(this.username, this.password);
-        if(reply != "Failed"){
-          this.$store.commit('setLoginName', reply);
-          console.log(reply, this.$store.state.loginName);
-          window.location.href = '/'; //dark-art
-        }
-        else{
-          alert("Wrong username or password")
-        }
+import * as http from "../services"; 
+export default {
+  name: 'Login',
+  data(){
+    return{
+      username: "",
+      password: ""
+    } 
+  },
+  methods:{
+    async login(){
+      const reply = await http.AuthenticateService.login(this.username, this.password);
+      if(reply){
+        this.$store.commit('setLoginName', reply);
+        console.log(reply, this.$store.state.loginName);
+        window.location.href = '/'; // dark-art
+      }
+      else{
+        alert("Wrong username or password")
       }
     }
   }
+}
 
 </script>

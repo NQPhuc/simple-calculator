@@ -43,18 +43,18 @@ td {
 import * as http from "../services";
 export default {
   setup() {},
-  async mounted() {
+  mounted() {
     this.$store.commit("updateHistory");
   },
   methods:{
-      async clearHistory(){
-            const res = await http.HistoryService.clearHistory();
-            console.log(res);
-            if(res === "Not logged in"){
-                localStorage.setItem("history", JSON.stringify([]));
-            }
-            this.$store.commit("updateHistory");
+    async clearHistory(){
+      const res = await http.HistoryService.clearHistory();
+      console.log(res);
+      if(!res){
+        localStorage.setItem("history", JSON.stringify([]));
       }
+      this.$store.commit("updateHistory");
+    }
   }
 };
 </script>
