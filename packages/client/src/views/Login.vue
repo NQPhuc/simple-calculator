@@ -12,6 +12,7 @@
 
 <script>
 import * as http from "../services"; 
+import router from '@/router';
 export default {
   name: 'Login',
   data(){
@@ -25,11 +26,11 @@ export default {
       const reply = await http.AuthenticateService.login(this.username, this.password);
       if(reply){
         this.$store.commit('setLoginName', reply);
-        console.log(reply, this.$store.state.loginName);
-        window.location.href = '/'; // dark-art
+        this.$store.commit("setHeaderMessage", "Login successfully");
+        router.push('/');
       }
       else{
-        alert("Wrong username or password")
+        this.$store.commit("setHeaderMessage", "Wrong username or password");
       }
     }
   }

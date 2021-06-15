@@ -6,6 +6,7 @@
       <router-link to="/">Calculate</router-link> |
       <router-link to="/register">Register</router-link>
     </div>
+    <div v-if="this.$store.state.headerMessage">{{this.$store.state.headerMessage}}</div>
     <router-view />
   </div>
 </template>

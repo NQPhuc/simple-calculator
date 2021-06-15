@@ -24,10 +24,10 @@ export default {
     async register(){
       const reply = await http.UserService.register(this.username, this.password);
       if (reply) {
-        alert(reply.message);
+        this.$store.commit("setHeaderMessage", reply.message);
       }
       else {
-        alert("Failed");
+        this.$store.commit("setHeaderMessage", "Failed");
       }
     }
   }

@@ -9,7 +9,7 @@ export default class AuthenticateService{
       })).data;
     } 
     catch (e) {
-      alert(e);
+      console.log(e);
     }
   }
 

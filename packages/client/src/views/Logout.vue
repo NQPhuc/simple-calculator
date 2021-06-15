@@ -12,14 +12,15 @@
 </template>
 
 <script>
-import * as http from "../services"; 
+import * as http from "../services";
+import router from '@/router'; 
 export default{
   name: "Logout",
   methods:{
     async logout(){
       await http.AuthenticateService.logout();
       this.$store.commit("setLoginName", null);
-      window.location.href = '/'; // dark-art
+      router.push('/');
     }
   }
 }
