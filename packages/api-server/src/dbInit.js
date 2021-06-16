@@ -23,7 +23,7 @@ const init = () => {
     // create the db and ignore any errors, for example if it already exists.
     client.query(`CREATE DATABASE "${dbName}"`, async (err2, result) => {
       done();
-      createTable();
+      await createTable();
       client.end(); // close the connection
     });
   });

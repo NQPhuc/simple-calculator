@@ -12,7 +12,11 @@ export async function login (req, res) {
       return;
     }
 
-    const token = tokenGenerator(user);
+    const jwtData = {
+      id: user.id,
+      username: user.username
+    };
+    const token = tokenGenerator(jwtData);
 
     res.cookie('token', token, config.cookieOptions);
     res.status(200).send(user.username);
