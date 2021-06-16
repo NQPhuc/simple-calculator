@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {backendAddress} from '../config.js'
+import { backendAddress } from '../config.js';
 
 export const axiosDefault = axios.create({
   baseURL: backendAddress,

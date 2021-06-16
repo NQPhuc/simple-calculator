@@ -5,14 +5,14 @@
   </div>
 </template>
 <script>
-
 import Calculator from "@/components/Calculator.vue";
 import HistoryBox from "@/components/HistoryBox.vue";
-export default{
+
+export default {
   name: "Calculate",
   components: {
     Calculator,
     HistoryBox
   }
-}
+};
 </script>

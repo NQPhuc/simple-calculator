@@ -1,34 +1,33 @@
-import {axiosDefault, axiosWithCookies} from './axios.instance';
+import { axiosDefault, axiosWithCookies } from './axios.instance';
 
-export default class AuthenticateService{
-  static async login(username, password){
+export default class AuthenticateService {
+  static async login (username, password) {
     try {
-      return (await axiosWithCookies.post('/auth/login',{
-        username: username,
-        password: password
-      })).data;
-    } 
-    catch (e) {
-      console.log(e);
+      const response = await axiosWithCookies.post('/auth/login', {
+        username,
+        password
+      });
+      return response.data;
+    } catch (e) {
+      return null;
     }
   }
 
-  static async logout(){
-    try{
-      return (await axiosWithCookies.get('/auth/logout')).data;
-    } 
-    catch (e) {
+  static async logout () {
+    try {
+      const response = await axiosWithCookies.get('/auth/logout');
+      return response.data;
+    } catch (e) {
       return null;
     }
-        
   }
 
-  static async verifyToken(){
+  static async verifyToken () {
     try {
-      return (await axiosWithCookies.get('/auth')).data;
-    } 
-    catch (e) {
+      const response = await axiosWithCookies.get('/auth');
+      return response.data;
+    } catch (e) {
       return null;
-    }   
+    }
   }
 }

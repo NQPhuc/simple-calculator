@@ -7,11 +7,10 @@ export default (Vuex) => new Vuex.Store({
     headerMessage: "",
   },
   mutations: {
-    setLoginName(state, name){
+    setLoginName (state, name) {
       state.loginName = name;
     },
-    setHeaderMessage(state, msg){
-      console.log("HERE");
+    setHeaderMessage (state, msg) {
       state.headerMessage = msg;
     },
     async updateHistory (state) {
