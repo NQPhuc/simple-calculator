@@ -1,21 +1,21 @@
-import {axiosDefault, axiosWithCookies} from './axios.instance';
+import { axiosDefault, axiosWithCookies } from './axios.instance';
 
-export default class HistoryService{
-  static async getAllHistory(){
+export default class HistoryService {
+  static async getAllHistory () {
     try {
-      return (await axiosWithCookies.get('/history/all')).data;
-    }
-    catch (e) {
+      const response = await axiosWithCookies.get('/history/all');
+      return response.data;
+    } catch (e) {
       return null;
     }
   }
 
-  static async clearHistory(){
+  static async clearHistory () {
     try {
-      return (await axiosWithCookies.delete('/history/all')).data;
-    }
-    catch (e) {
+      const response = await axiosWithCookies.delete('/history/all');
+      return response.data;
+    } catch (e) {
       return null;
-    }   
+    }
   }
 }
