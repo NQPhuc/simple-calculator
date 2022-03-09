@@ -12,7 +12,7 @@ module.exports = {
     parser: "babel-eslint",
   },
   rules: {
-    'linebreak-style': ['error', process.env.NODE_ENV === 'production' ? 'unix' : 'windows'],
+    'linebreak-style': ['off', process.env.NODE_ENV === 'production' ? 'unix' : 'windows'],
     quotes: 0,
     "no-unused-vars": "off",
     'import/no-unresolved': 'off',

@@ -13,3 +13,4 @@ B. Setup FE
   2. yarn install
   4. change .env.example name into .env
   5. start the server with: yarn dev
+
